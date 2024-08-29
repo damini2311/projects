@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PersonalDetails from "./PersonalDetails";
 import AddressInfo from "./AddressInfo";
 import ConfirmationData from "./ConfirmationData";
+import "./form.css";
 
 const Form = () => {
   const [tab, setTab] = useState(0);
   const [errors, setErrors] = useState({});
+  const FormPage = ["step1", "step2", "step3"];
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,7 +25,20 @@ const Form = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const FormPage = ["step1", "step2", "step3"];
+
+  //------------- local storage-----------
+  useEffect(() => {
+    const savedData = localStorage.getItem("formData");
+    if (savedData) {
+      setFormData(JSON.parse(savedData));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
+
+  //---------------tabnavigation-----------
 
   const displayPages = () => {
     if (tab === 0) {
@@ -48,6 +63,8 @@ const Form = () => {
       );
     }
   };
+
+  //---------------validation----------------
 
   const validateStep1 = () => {
     let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -110,8 +127,17 @@ const Form = () => {
     }
   };
 
+  //------submitt fotm---------
   const handleSubmit = () => {
-    alert("form is submitted");
+    setTimeout(() => {
+      const success = Math.random() > 0.2; // 80% chance of success
+      if (success) {
+        alert("Form submitted successfully!");
+        localStorage.removeItem("formData"); // Clear local storage on successful submission
+      } else {
+        alert("Submission failed! Please try again.");
+      }
+    }, 1000);
   };
 
   return (

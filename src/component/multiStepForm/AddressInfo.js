@@ -13,7 +13,7 @@ const AddressInfo = ({ formData, handleInput, errors }) => {
           onChange={handleInput}
           value={adress1}
         />
-        {errors && <p>{errors.adress1}</p>}
+        {errors && <p className="error">{errors.adress1}</p>}
         <input
           type="text"
           name="adress2"
@@ -21,7 +21,7 @@ const AddressInfo = ({ formData, handleInput, errors }) => {
           onChange={handleInput}
           value={adress2}
         />
-        {errors && <p>{errors.adress2}</p>}
+        {errors && <p className="error">{errors.adress2}</p>}
         <input
           type="text"
           name="city"
@@ -29,7 +29,7 @@ const AddressInfo = ({ formData, handleInput, errors }) => {
           value={city}
           onChange={handleInput}
         />
-        {errors && <p>{errors.city}</p>}
+        {errors && <p className="error">{errors.city}</p>}
         <input
           type="text"
           name="state"
@@ -37,7 +37,7 @@ const AddressInfo = ({ formData, handleInput, errors }) => {
           value={state}
           onChange={handleInput}
         />
-        {errors && <p>{errors.state}</p>}
+        {errors && <p className="error">{errors.state}</p>}
         <input
           type="text"
           name="zipcode"
@@ -45,7 +45,7 @@ const AddressInfo = ({ formData, handleInput, errors }) => {
           value={zipcode}
           onChange={handleInput}
         />
-        {errors && <p>{errors.zipcode}</p>}
+        {errors && <p className="error">{errors.zipcode}</p>}
       </form>
     </div>
   );

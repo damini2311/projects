@@ -6,7 +6,7 @@ const ConfirmationData = ({ handleSubmit, formData }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="confirmation-container">
         <h2>Confirmation</h2>
         <p>Name: {name}</p>
         <p>Email: {email}</p>

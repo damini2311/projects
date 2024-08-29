@@ -13,7 +13,7 @@ const PersonalDetails = ({ formData, handleInput, errors }) => {
           value={name}
           onChange={handleInput}
         />
-        {errors && <p>{errors.name}</p>}
+        {errors && <p className="error">{errors.name}</p>}
         <input
           type="email"
           name="email"
@@ -21,7 +21,7 @@ const PersonalDetails = ({ formData, handleInput, errors }) => {
           value={email}
           onChange={handleInput}
         />
-        {errors && <p>{errors.email}</p>}
+        {errors && <p className="error">{errors.email}</p>}
         <input
           type="text"
           name="phone"
@@ -29,7 +29,7 @@ const PersonalDetails = ({ formData, handleInput, errors }) => {
           value={phone}
           onChange={handleInput}
         />
-        {errors && <p>{errors.phone}</p>}
+        {errors && <p className="error">{errors.phone}</p>}
       </form>
     </div>
   );
